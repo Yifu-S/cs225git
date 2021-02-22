@@ -5,6 +5,8 @@
  * @author Yifu Song from Illinois
  */
 
+#include <cmath>
+#include <cstdlib>
 #include "Image.h"
 using cs225::PNG;
 using cs225::HSLAPixel;
@@ -194,11 +196,12 @@ void Image::illinify()
         {
             HSLAPixel & pixel = this->getPixel(x, y);
             // if closer to orange (11)
-            if (std::abs(pixel.h - 11) <= std::abs(pixel.h - 216) || std::abs(pixel.h - (11 + 360)) <= std::abs(pixel.h - 216))
-                pixel.h = 11;
+            if (std::abs((double)pixel.h - 11.0) <= std::abs((double)pixel.h - 216.0) || 
+                std::abs((double)pixel.h - (11.0 + 360.0)) <= std::abs((double)pixel.h - 216.0))
+                pixel.h = 11.0;
 
             else // which means closer to blue (216)
-                pixel.h = 216;
+                pixel.h = 216.0;
         }
     }
 }

@@ -100,6 +100,20 @@ class Image : public cs225::PNG
          */
         void scale(unsigned w, unsigned h);
 
-    private:
+        /**
+         * @brief Construct a new Image object
+         * 
+         * @param wid width
+         * @param hei height
+         */
+        Image(unsigned wid, unsigned hei) : PNG(wid, hei){};
 
+        /**
+         * @brief Construct a new Image object
+         * 
+         * @param other to be copied
+         */
+        // Image(const Image &other) : PNG(other){};
+
+        Image() : PNG(){};
 };
